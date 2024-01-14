@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://btvde11rkpj7c"]
+[gd_scene load_steps=10 format=3 uid="uid://dowsny3a6kotw"]
 
 [ext_resource type="Script" path="res://burgerparts.gd" id="1_6kawm"]
 [ext_resource type="Texture2D" uid="uid://btyksugq7jjrt" path="res://assets/burger-bottom.png" id="1_kqa3j"]
 [ext_resource type="Texture2D" uid="uid://dmk58jvd3td0f" path="res://assets/cheese.png" id="2_ag4c1"]
+[ext_resource type="PackedScene" uid="uid://chegh8f4puhkt" path="res://scene.tscn" id="2_gf7ib"]
 [ext_resource type="Texture2D" uid="uid://cikvlc12ok1re" path="res://assets/lettuce.png" id="3_asvfj"]
 [ext_resource type="Texture2D" uid="uid://dlceavs2wbm2t" path="res://assets/burger-top.png" id="4_bddjj"]
 [ext_resource type="Texture2D" uid="uid://2e3w0hkfsg3e" path="res://assets/beef.png" id="5_uw2la"]
@@ -19,6 +20,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_obrph")
 script = ExtResource("1_6kawm")
+
+[node name="Scene" parent="." instance=ExtResource("2_gf7ib")]
+position = Vector2(10, -71)
 
 [node name="IngredientsLeft" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -109,11 +113,6 @@ offset_top = -107.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 2
-
-[node name="ProgressBar" type="ProgressBar" parent="BottomUI"]
-layout_mode = 2
-size_flags_vertical = 3
-show_percentage = false
 
 [node name="Button" type="Button" parent="BottomUI"]
 layout_mode = 2
