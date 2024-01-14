@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://chegh8f4puhkt"]
+[gd_scene load_steps=5 format=3 uid="uid://chegh8f4puhkt"]
+
+[ext_resource type="Script" path="res://Pickable.gd" id="1_2vlhc"]
+[ext_resource type="Script" path="res://Main.gd" id="1_6w10p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whnis"]
 size = Vector2(320, 46.5)
@@ -7,10 +10,13 @@ size = Vector2(320, 46.5)
 size = Vector2(992, 49)
 
 [node name="Scene" type="Node2D"]
+rotation = 0.00873521
+script = ExtResource("1_6w10p")
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(514, 284)
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["pickable"]]
+position = Vector2(179.013, 284.447)
 input_pickable = true
+script = ExtResource("1_2vlhc")
 
 [node name="Polygon2D" type="Polygon2D" parent="RigidBody2D"]
 position = Vector2(-626, -322)
@@ -21,7 +27,7 @@ position = Vector2(5, -56.25)
 shape = SubResource("RectangleShape2D_whnis")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(512, 521)
+position = Vector2(177.013, 521.447)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 position = Vector2(-135, -64)
@@ -34,7 +40,7 @@ shape = SubResource("RectangleShape2D_v5tss")
 debug_color = Color(0.309804, 0.505882, 0.964706, 0.419608)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(546, 377)
+position = Vector2(211.013, 377.447)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
 position = Vector2(-316.381, 148.836)
@@ -48,7 +54,7 @@ scale = Vector2(0.390588, 0.807808)
 polygon = PackedVector2Array(-43.2112, 29.5005, 335.552, -422.316, 402.836, -392.927, 73.8601, 20.741)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(85, 460)
+position = Vector2(-249.987, 460.447)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
 position = Vector2(195, 147)
