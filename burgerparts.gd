@@ -1,7 +1,13 @@
 extends Control
 
 @onready var request_view = $ColorRect/RequestView
-
+var held_object = null
+		
+func _on_pickable_clicked(object):
+	if !held_object:
+		object.pickup()
+		held_object = object
+		
 var foods = [
 	preload("res://assets/burger-bottom.png"),
 	preload("res://assets/cheese.png"),
@@ -17,6 +23,8 @@ var celebrate = preload("res://celebrate.tscn")
 func _ready():
 	randomize()
 	new_recipe()
+	for node in get_tree().get_nodes_in_group("pickable"):
+		node.clicked.connect(_on_pickable_clicked)
 
 func new_recipe():
 	for n in request_view.get_children():
@@ -38,6 +46,12 @@ func add_ingredient(n):
 
 func _on_timer_timeout():
 	pass # Replace with function body.
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if held_object and !event.pressed:
+			held_object.drop(Input.get_last_mouse_velocity())
+			held_object = null
 
 func _on_button_pressed():
 	new_recipe()
