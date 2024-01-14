@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Main.gd" id="1_6w10p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whnis"]
-size = Vector2(320, 46.5)
+size = Vector2(183.588, 27.8146)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5tss"]
 size = Vector2(992, 49)
@@ -14,20 +14,21 @@ rotation = 0.00873521
 script = ExtResource("1_6w10p")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=["pickable"]]
-position = Vector2(179.013, 284.447)
+position = Vector2(221.573, 179.071)
 input_pickable = true
+freeze_mode = 1
 script = ExtResource("1_2vlhc")
 
 [node name="Polygon2D" type="Polygon2D" parent="RigidBody2D"]
 position = Vector2(-626, -322)
-polygon = PackedVector2Array(471, 243, 475, 287, 787, 287, 789, 241)
+polygon = PackedVector2Array(534.386, 311.8, 535.579, 333.79, 720.589, 334.174, 719.397, 312.184)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(5, -56.25)
+position = Vector2(1.47894, -0.01297)
 shape = SubResource("RectangleShape2D_whnis")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(177.013, 521.447)
+position = Vector2(186.671, 648.394)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 position = Vector2(-135, -64)
@@ -40,7 +41,7 @@ shape = SubResource("RectangleShape2D_v5tss")
 debug_color = Color(0.309804, 0.505882, 0.964706, 0.419608)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(211.013, 377.447)
+position = Vector2(220.224, 368.09)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
 position = Vector2(-316.381, 148.836)
@@ -51,7 +52,7 @@ polygon = PackedVector2Array(216.755, 9, 328.175, -305, 337.538, -275, 238.29, 1
 position = Vector2(167.295, 139.185)
 rotation = 0.261799
 scale = Vector2(0.390588, 0.807808)
-polygon = PackedVector2Array(-43.2112, 29.5005, 335.552, -422.316, 402.836, -392.927, 73.8601, 20.741)
+polygon = PackedVector2Array(79.5203, 199.194, -366.424, -610.71, -223.6, -635, 162.034, 185.56)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(-249.987, 460.447)
@@ -66,4 +67,32 @@ polygon = PackedVector2Array(26.7096, 41.6936, 100.915, -323.117, 116.503, -304.
 position = Vector2(244, 96)
 rotation = -1.0472
 scale = Vector2(0.384687, 0.811906)
-polygon = PackedVector2Array(-43.2112, 29.5005, 335.552, -422.316, 402.836, -392.927, 73.8601, 20.741)
+polygon = PackedVector2Array(-292.596, 18.549, 1192.76, -417.456, 1298.56, -346.92, -231.229, 80.0428)
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="." groups=["pickable"]]
+position = Vector2(187.893, 330.371)
+input_pickable = true
+freeze_mode = 1
+script = ExtResource("1_2vlhc")
+
+[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D2"]
+position = Vector2(-624.859, -324.554)
+polygon = PackedVector2Array(534.386, 311.8, 535.579, 333.79, 720.589, 334.174, 719.397, 312.184)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2(4.28983, -1.44916)
+shape = SubResource("RectangleShape2D_whnis")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="." groups=["pickable"]]
+position = Vector2(196.255, 257.296)
+input_pickable = true
+freeze_mode = 1
+script = ExtResource("1_2vlhc")
+
+[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D3"]
+position = Vector2(-626.841, -322.537)
+polygon = PackedVector2Array(534.386, 311.8, 535.579, 333.79, 720.589, 334.174, 719.397, 312.184)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+position = Vector2(1.52588e-05, 2.28882e-05)
+shape = SubResource("RectangleShape2D_whnis")

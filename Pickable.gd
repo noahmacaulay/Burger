@@ -4,7 +4,7 @@ signal clicked
 
 var held = false
 
-func _on_input_event(viewport, event, shape_idx):
+func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			print("cicked")
@@ -26,7 +26,7 @@ func pickup():
 	freeze = true
 	held = true
 	
-func drop(impulse = Vector2.ZERO):
+func drop(impulse):
 	if held:
 		freeze = false
 		apply_central_impulse(impulse)
