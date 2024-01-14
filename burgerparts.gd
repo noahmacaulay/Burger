@@ -4,6 +4,7 @@ extends Control
 var held_object = null
 
 var burgerpart = preload("res://BurgerPart.tscn")
+@onready var ingredient_group = $IngredientGroup
 
 func _on_pickable_clicked(object):
 	if !held_object:
@@ -62,39 +63,39 @@ func _on_button_2_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[0]
-	add_child(bottom_bun)
+	$IngredientGroup.add_child(bottom_bun)
 
 
 func _on_cheese_button_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[1]
-	add_child(bottom_bun)
+	$IngredientGroup.add_child(bottom_bun)
 
 
 func _on_lettuce_button_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[2]
-	add_child(bottom_bun)
+	$IngredientGroup.add_child(bottom_bun)
 
 
 func _on_top_button_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[5]
-	add_child(bottom_bun)
+	$IngredientGroup.add_child(bottom_bun)
 
 
 func _on_burger_button_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[3]
-	add_child(bottom_bun)
+	$IngredientGroup.add_child(bottom_bun)
 
 
 func _on_tomato_button_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[4]
-	add_child(bottom_bun)
+	$IngredientGroup.add_child(bottom_bun)
