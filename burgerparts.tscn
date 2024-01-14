@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://btvde11rkpj7c"]
+[gd_scene load_steps=9 format=3 uid="uid://btvde11rkpj7c"]
 
+[ext_resource type="Script" path="res://burgerparts.gd" id="1_6kawm"]
 [ext_resource type="Texture2D" uid="uid://btyksugq7jjrt" path="res://assets/burger-bottom.png" id="1_kqa3j"]
 [ext_resource type="Texture2D" uid="uid://dmk58jvd3td0f" path="res://assets/cheese.png" id="2_ag4c1"]
 [ext_resource type="Texture2D" uid="uid://cikvlc12ok1re" path="res://assets/lettuce.png" id="3_asvfj"]
@@ -17,18 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_obrph")
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -86.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "SERVE!"
+script = ExtResource("1_6kawm")
 
 [node name="IngredientsLeft" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -109,7 +99,28 @@ grow_horizontal = 2
 scale = Vector2(1.5, 1.5)
 alignment = 1
 
-[node name="RequestIngredient" type="TextureRect" parent="ColorRect/RequestView"]
+[node name="BottomUI" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -107.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="BottomUI"]
 layout_mode = 2
-texture = ExtResource("5_uw2la")
-stretch_mode = 5
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="Button" type="Button" parent="BottomUI"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "SERVE!"
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="BottomUI/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

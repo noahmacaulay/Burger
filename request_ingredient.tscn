@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5mwsusr5o3tc"]
+
+[ext_resource type="Texture2D" uid="uid://2e3w0hkfsg3e" path="res://assets/beef.png" id="1_bl5uy"]
+
+[node name="RequestIngredient" type="TextureRect"]
+texture = ExtResource("1_bl5uy")
+stretch_mode = 5
