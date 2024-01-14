@@ -5,21 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://dmk58jvd3td0f" path="res://assets/cheese.png" id="2_ag4c1"]
 [ext_resource type="Texture2D" uid="uid://biujcljfjao67" path="res://assets/kitchen.jpg" id="2_jnl37"]
 [ext_resource type="Texture2D" uid="uid://cikvlc12ok1re" path="res://assets/lettuce.png" id="3_asvfj"]
-[ext_resource type="PackedScene" path="res://BurgerPart.tscn" id="3_oax5m"]
 [ext_resource type="Texture2D" uid="uid://dlceavs2wbm2t" path="res://assets/burger-top.png" id="4_bddjj"]
 [ext_resource type="Texture2D" uid="uid://2e3w0hkfsg3e" path="res://assets/beef.png" id="5_uw2la"]
 [ext_resource type="Texture2D" uid="uid://b4v3ou2vmcg1a" path="res://assets/tomato.png" id="6_k1cjq"]
+[ext_resource type="Texture2D" uid="uid://blfcdx82dyigq" path="res://assets/Takeout.png" id="9_3qdy2"]
 
 [sub_resource type="Theme" id="Theme_obrph"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcini"]
-size = Vector2(640, 415)
+size = Vector2(640, 431.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bihd"]
-size = Vector2(646, 657)
+size = Vector2(132, 339)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vapkt"]
-size = Vector2(720, 618)
+size = Vector2(129, 343)
 
 [node name="burgerparts" type="Control"]
 layout_mode = 3
@@ -41,12 +41,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_jnl37")
 stretch_mode = 6
-
-[node name="BurgerPart" parent="." instance=ExtResource("3_oax5m")]
-position = Vector2(189, 296)
-
-[node name="BurgerPart2" parent="." instance=ExtResource("3_oax5m")]
-position = Vector2(179, 405)
 
 [node name="IngredientsLeft" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -156,20 +150,24 @@ text = "SERVE!"
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(191, 795)
+position = Vector2(191, 786.75)
 shape = SubResource("RectangleShape2D_fcini")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(697, 266.5)
+position = Vector2(344, 430)
 shape = SubResource("RectangleShape2D_1bihd")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(-358, 297)
+position = Vector2(25.5, 430)
 shape = SubResource("RectangleShape2D_vapkt")
+
+[node name="Takeout" type="Sprite2D" parent="."]
+position = Vector2(180, 443)
+texture = ExtResource("9_3qdy2")
 
 [connection signal="pressed" from="IngredientsLeft/BurgerBottom/button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="BottomUI/Button" to="." method="_on_button_pressed"]
