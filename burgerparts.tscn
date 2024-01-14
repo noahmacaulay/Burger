@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://btvde11rkpj7c"]
+[gd_scene load_steps=8 format=3 uid="uid://btvde11rkpj7c"]
 
 [ext_resource type="Texture2D" uid="uid://btyksugq7jjrt" path="res://assets/burger-bottom.png" id="1_kqa3j"]
 [ext_resource type="Texture2D" uid="uid://dmk58jvd3td0f" path="res://assets/cheese.png" id="2_ag4c1"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://2e3w0hkfsg3e" path="res://assets/beef.png" id="5_uw2la"]
 [ext_resource type="Texture2D" uid="uid://b4v3ou2vmcg1a" path="res://assets/tomato.png" id="6_k1cjq"]
 
+[sub_resource type="Theme" id="Theme_obrph"]
+
 [node name="burgerparts" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -14,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_obrph")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -85,4 +88,28 @@ stretch_mode = 5
 [node name="Lettuce" type="TextureRect" parent="IngredientsRight"]
 layout_mode = 2
 texture = ExtResource("6_k1cjq")
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 108.0
+grow_horizontal = 2
+
+[node name="RequestView" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -185.5
+offset_right = 61.5
+offset_bottom = 71.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+alignment = 1
+
+[node name="RequestIngredient" type="TextureRect" parent="ColorRect/RequestView"]
+layout_mode = 2
+texture = ExtResource("5_uw2la")
 stretch_mode = 5
