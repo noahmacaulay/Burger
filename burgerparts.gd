@@ -12,6 +12,7 @@ var foods = [
 ]
 
 var ingredient = preload("res://request_ingredient.tscn")
+var celebrate = preload("res://celebrate.tscn")
 
 func _ready():
 	randomize()
@@ -38,6 +39,8 @@ func add_ingredient(n):
 func _on_timer_timeout():
 	pass # Replace with function body.
 
-
 func _on_button_pressed():
 	new_recipe()
+	for node in get_tree().get_nodes_in_group("pickable"):
+		node.queue_free()
+	add_child(celebrate.instantiate())
