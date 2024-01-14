@@ -1,15 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://dowsny3a6kotw"]
+[gd_scene load_steps=13 format=3 uid="uid://dowsny3a6kotw"]
 
 [ext_resource type="Script" path="res://burgerparts.gd" id="1_6kawm"]
 [ext_resource type="Texture2D" uid="uid://btyksugq7jjrt" path="res://assets/burger-bottom.png" id="1_kqa3j"]
 [ext_resource type="Texture2D" uid="uid://dmk58jvd3td0f" path="res://assets/cheese.png" id="2_ag4c1"]
-[ext_resource type="PackedScene" uid="uid://chegh8f4puhkt" path="res://scene.tscn" id="2_gf7ib"]
 [ext_resource type="Texture2D" uid="uid://cikvlc12ok1re" path="res://assets/lettuce.png" id="3_asvfj"]
+[ext_resource type="PackedScene" uid="uid://c0owulncqeebx" path="res://BurgerPart.tscn" id="3_oax5m"]
 [ext_resource type="Texture2D" uid="uid://dlceavs2wbm2t" path="res://assets/burger-top.png" id="4_bddjj"]
 [ext_resource type="Texture2D" uid="uid://2e3w0hkfsg3e" path="res://assets/beef.png" id="5_uw2la"]
 [ext_resource type="Texture2D" uid="uid://b4v3ou2vmcg1a" path="res://assets/tomato.png" id="6_k1cjq"]
 
 [sub_resource type="Theme" id="Theme_obrph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcini"]
+size = Vector2(640, 415)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bihd"]
+size = Vector2(646, 657)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vapkt"]
+size = Vector2(720, 618)
 
 [node name="burgerparts" type="Control"]
 layout_mode = 3
@@ -21,8 +30,11 @@ grow_vertical = 2
 theme = SubResource("Theme_obrph")
 script = ExtResource("1_6kawm")
 
-[node name="Scene" parent="." instance=ExtResource("2_gf7ib")]
-position = Vector2(10, -71)
+[node name="BurgerPart" parent="." instance=ExtResource("3_oax5m")]
+position = Vector2(189, 296)
+
+[node name="BurgerPart2" parent="." instance=ExtResource("3_oax5m")]
+position = Vector2(179, 405)
 
 [node name="IngredientsLeft" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -120,6 +132,24 @@ theme_override_font_sizes/font_size = 50
 text = "SERVE!"
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(191, 795)
+shape = SubResource("RectangleShape2D_fcini")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(697, 266.5)
+shape = SubResource("RectangleShape2D_1bihd")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-358, 297)
+shape = SubResource("RectangleShape2D_vapkt")
 
 [connection signal="pressed" from="BottomUI/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
