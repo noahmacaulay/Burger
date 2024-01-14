@@ -12,7 +12,7 @@ size = Vector2(183.588, 27.8146)
 size = Vector2(2325.51, 880.025)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fan56"]
-size = Vector2(2665.56, 919)
+size = Vector2(1901.84, 919)
 
 [node name="Scene" type="Node2D"]
 rotation = 0.00873521
@@ -113,5 +113,5 @@ shape = SubResource("RectangleShape2D_whnis")
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
-position = Vector2(113.123, -876.995)
+position = Vector2(-268.74, -876.995)
 shape = SubResource("RectangleShape2D_fan56")

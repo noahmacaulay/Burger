@@ -66,6 +66,14 @@ layout_mode = 2
 texture = ExtResource("1_kqa3j")
 stretch_mode = 5
 
+[node name="button2" type="Button" parent="IngredientsLeft/BurgerBottom"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 44.0
+offset_bottom = 30.0
+
 [node name="Cheese" type="TextureRect" parent="IngredientsLeft"]
 layout_mode = 2
 texture = ExtResource("2_ag4c1")
@@ -163,5 +171,6 @@ shape = SubResource("RectangleShape2D_1bihd")
 position = Vector2(-358, 297)
 shape = SubResource("RectangleShape2D_vapkt")
 
+[connection signal="pressed" from="IngredientsLeft/BurgerBottom/button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="BottomUI/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

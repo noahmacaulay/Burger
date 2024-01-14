@@ -2,7 +2,9 @@ extends Control
 
 @onready var request_view = $ColorRect/RequestView
 var held_object = null
-		
+
+var burgerpart = preload("res://BurgerPart.tscn")
+
 func _on_pickable_clicked(object):
 	if !held_object:
 		object.pickup()
@@ -18,7 +20,6 @@ var foods = [
 ]
 
 var ingredient = preload("res://request_ingredient.tscn")
-var celebrate = preload("res://celebrate.tscn")
 
 func _ready():
 	randomize()
@@ -55,6 +56,10 @@ func _unhandled_input(event):
 
 func _on_button_pressed():
 	new_recipe()
-	for node in get_tree().get_nodes_in_group("pickable"):
-		node.queue_free()
-	add_child(celebrate.instantiate())
+
+
+func _on_button_2_pressed():
+	var bottom_bun = burgerpart.instantiate()
+	bottom_bun.position = Vector2(200.0, 300.0)
+	bottom_bun.get_node("sprite").texture = foods[0]
+	add_child(bottom_bun)
