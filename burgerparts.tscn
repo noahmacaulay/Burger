@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dowsny3a6kotw"]
+[gd_scene load_steps=14 format=3 uid="uid://btvde11rkpj7c"]
 
 [ext_resource type="Script" path="res://burgerparts.gd" id="1_6kawm"]
 [ext_resource type="Texture2D" uid="uid://btyksugq7jjrt" path="res://assets/burger-bottom.png" id="1_kqa3j"]

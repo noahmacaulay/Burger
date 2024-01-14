@@ -4,6 +4,7 @@ extends Control
 var held_object = null
 
 var burgerpart = preload("res://BurgerPart.tscn")
+var celebrate = preload("res://celebrate.tscn")
 @onready var ingredient_group = $IngredientGroup
 
 func _on_pickable_clicked(object):
@@ -57,6 +58,10 @@ func _unhandled_input(event):
 
 func _on_button_pressed():
 	new_recipe()
+	for node in ingredient_group.get_children():
+		ingredient_group.remove_child(node)
+		ingredient_group.queue_free()
+	add_child(celebrate.instantiate())
 
 
 func _on_button_2_pressed():
