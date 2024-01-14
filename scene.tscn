@@ -14,7 +14,9 @@ size = Vector2(2325.51, 880.025)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fan56"]
 size = Vector2(1901.84, 919)
 
-[node name="Scene" type="Node2D"]
+[node name="Scene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 rotation = 0.00873521
 script = ExtResource("1_6w10p")
 

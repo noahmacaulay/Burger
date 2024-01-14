@@ -60,7 +60,7 @@ func _on_button_pressed():
 	new_recipe()
 	for node in ingredient_group.get_children():
 		ingredient_group.remove_child(node)
-		ingredient_group.queue_free()
+		node.queue_free()
 	add_child(celebrate.instantiate())
 
 
@@ -68,6 +68,8 @@ func _on_button_2_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[0]
+	bottom_bun.add_to_group("pickable")
+	bottom_bun.clicked.connect(_on_pickable_clicked)
 	$IngredientGroup.add_child(bottom_bun)
 
 
@@ -75,6 +77,8 @@ func _on_cheese_button_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[1]
+	bottom_bun.add_to_group("pickable")
+	bottom_bun.clicked.connect(_on_pickable_clicked)
 	$IngredientGroup.add_child(bottom_bun)
 
 
@@ -82,6 +86,8 @@ func _on_lettuce_button_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[2]
+	bottom_bun.add_to_group("pickable")
+	bottom_bun.clicked.connect(_on_pickable_clicked)
 	$IngredientGroup.add_child(bottom_bun)
 
 
@@ -89,6 +95,8 @@ func _on_top_button_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[5]
+	bottom_bun.add_to_group("pickable")
+	bottom_bun.clicked.connect(_on_pickable_clicked)
 	$IngredientGroup.add_child(bottom_bun)
 
 
@@ -96,6 +104,8 @@ func _on_burger_button_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[3]
+	bottom_bun.add_to_group("pickable")
+	bottom_bun.clicked.connect(_on_pickable_clicked)
 	$IngredientGroup.add_child(bottom_bun)
 
 
@@ -103,4 +113,6 @@ func _on_tomato_button_pressed():
 	var bottom_bun = burgerpart.instantiate()
 	bottom_bun.position = Vector2(200.0, 300.0)
 	bottom_bun.get_node("sprite").texture = foods[4]
+	bottom_bun.add_to_group("pickable")
+	bottom_bun.clicked.connect(_on_pickable_clicked)
 	$IngredientGroup.add_child(bottom_bun)

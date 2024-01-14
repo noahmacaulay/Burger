@@ -5,9 +5,9 @@ signal clicked
 var held = false
 
 func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton:
 		if event.pressed:
-			print("cicked")
+			print("clicked")
 			clicked.emit(self)
 
 # Called when the node enters the scene tree for the first time.
