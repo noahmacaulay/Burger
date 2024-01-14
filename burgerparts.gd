@@ -2,7 +2,9 @@ extends Control
 
 @onready var request_view = $ColorRect/RequestView
 var held_object = null
-		
+
+var burgerpart = preload("res://BurgerPart.tscn")
+
 func _on_pickable_clicked(object):
 	if !held_object:
 		object.pickup()
@@ -54,3 +56,10 @@ func _unhandled_input(event):
 
 func _on_button_pressed():
 	new_recipe()
+
+
+func _on_button_2_pressed():
+	var bottom_bun = burgerpart.instantiate()
+	bottom_bun.position = Vector2(200.0, 300.0)
+	bottom_bun.get_node("sprite").texture = foods[0]
+	add_child(bottom_bun)
