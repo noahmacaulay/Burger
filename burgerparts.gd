@@ -1,5 +1,7 @@
 extends Control
 
+@export var default_part_spawn : Vector2 = Vector2(200.0, 300.0)
+
 @onready var request_view = %RequestView
 var held_object = null
 
@@ -52,7 +54,7 @@ func _on_timer_timeout():
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if held_object and !event.pressed:
+		if held_object and event.is_action_released("l_mouse"):
 			held_object.drop(Input.get_last_mouse_velocity())
 			held_object = null
 
@@ -64,55 +66,20 @@ func _on_button_pressed():
 	add_child(celebrate.instantiate())
 
 
-func _on_button_2_pressed():
-	var bottom_bun = burgerpart.instantiate()
-	bottom_bun.position = Vector2(200.0, 300.0)
-	bottom_bun.get_node("sprite").texture = foods[0]
-	bottom_bun.add_to_group("pickable")
-	bottom_bun.clicked.connect(_on_pickable_clicked)
-	$IngredientGroup.add_child(bottom_bun)
+func _on_part_button_down(sprite_index : int):
+	var new_part = burgerpart.instantiate()
+	new_part.get_node("sprite").texture = foods[sprite_index]
+	new_part.add_to_group("pickable")
+	new_part.clicked.connect(_on_pickable_clicked)
+	$IngredientGroup.add_child(new_part)
+	if (held_object):
+		new_part.position = default_part_spawn
+		return
+	new_part.position = get_viewport().get_mouse_position()
+	_on_pickable_clicked(new_part)
 
-
-func _on_cheese_button_pressed():
-	var bottom_bun = burgerpart.instantiate()
-	bottom_bun.position = Vector2(200.0, 300.0)
-	bottom_bun.get_node("sprite").texture = foods[1]
-	bottom_bun.add_to_group("pickable")
-	bottom_bun.clicked.connect(_on_pickable_clicked)
-	$IngredientGroup.add_child(bottom_bun)
-
-
-func _on_lettuce_button_pressed():
-	var bottom_bun = burgerpart.instantiate()
-	bottom_bun.position = Vector2(200.0, 300.0)
-	bottom_bun.get_node("sprite").texture = foods[2]
-	bottom_bun.add_to_group("pickable")
-	bottom_bun.clicked.connect(_on_pickable_clicked)
-	$IngredientGroup.add_child(bottom_bun)
-
-
-func _on_top_button_pressed():
-	var bottom_bun = burgerpart.instantiate()
-	bottom_bun.position = Vector2(200.0, 300.0)
-	bottom_bun.get_node("sprite").texture = foods[5]
-	bottom_bun.add_to_group("pickable")
-	bottom_bun.clicked.connect(_on_pickable_clicked)
-	$IngredientGroup.add_child(bottom_bun)
-
-
-func _on_burger_button_pressed():
-	var bottom_bun = burgerpart.instantiate()
-	bottom_bun.position = Vector2(200.0, 300.0)
-	bottom_bun.get_node("sprite").texture = foods[3]
-	bottom_bun.add_to_group("pickable")
-	bottom_bun.clicked.connect(_on_pickable_clicked)
-	$IngredientGroup.add_child(bottom_bun)
-
-
-func _on_tomato_button_pressed():
-	var bottom_bun = burgerpart.instantiate()
-	bottom_bun.position = Vector2(200.0, 300.0)
-	bottom_bun.get_node("sprite").texture = foods[4]
-	bottom_bun.add_to_group("pickable")
-	bottom_bun.clicked.connect(_on_pickable_clicked)
-	$IngredientGroup.add_child(bottom_bun)
+func _on_part_button_up():
+	if (held_object):
+		held_object.position = default_part_spawn
+		held_object.drop(Vector2.ZERO)
+		held_object = null

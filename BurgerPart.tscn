@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2e3w0hkfsg3e" path="res://assets/beef.png" id="2_d1nt4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oudbq"]
-size = Vector2(94, 25)
+size = Vector2(94, 22)
 
 [node name="BurgerPart" type="RigidBody2D" groups=["pickable"]]
 input_pickable = true
@@ -12,10 +12,8 @@ freeze_mode = 1
 script = ExtResource("1_aeyuu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_oudbq")
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(-7.62939e-06, -1)
 scale = Vector2(2.96875, 2.96875)
 texture = ExtResource("2_d1nt4")
