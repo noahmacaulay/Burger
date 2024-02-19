@@ -1,6 +1,6 @@
 extends Control
 
-@onready var request_view = $ColorRect/RequestView
+@onready var request_view = %RequestView
 var held_object = null
 
 var burgerpart = preload("res://BurgerPart.tscn")
@@ -11,7 +11,7 @@ func _on_pickable_clicked(object):
 	if !held_object:
 		object.pickup()
 		held_object = object
-		
+
 var foods = [
 	preload("res://assets/burger-bottom.png"),
 	preload("res://assets/cheese.png"),

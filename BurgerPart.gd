@@ -7,13 +7,7 @@ var held = false
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			print("clicked")
 			clicked.emit(self)
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -25,7 +19,7 @@ func pickup():
 		return
 	freeze = true
 	held = true
-	
+
 func drop(impulse):
 	if held:
 		freeze = false
