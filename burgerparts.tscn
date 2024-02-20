@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://btvde11rkpj7c"]
+[gd_scene load_steps=14 format=3 uid="uid://btvde11rkpj7c"]
 
 [ext_resource type="Script" path="res://burgerparts.gd" id="1_6kawm"]
 [ext_resource type="Texture2D" uid="uid://btyksugq7jjrt" path="res://assets/burger-bottom.png" id="1_kqa3j"]
+[ext_resource type="Texture2D" uid="uid://dmk58jvd3td0f" path="res://assets/cheese.png" id="2_ag4c1"]
 [ext_resource type="Texture2D" uid="uid://biujcljfjao67" path="res://assets/kitchen.jpg" id="2_jnl37"]
 [ext_resource type="Texture2D" uid="uid://cikvlc12ok1re" path="res://assets/lettuce.png" id="3_asvfj"]
 [ext_resource type="Texture2D" uid="uid://dlceavs2wbm2t" path="res://assets/burger-top.png" id="4_bddjj"]
@@ -62,20 +63,16 @@ icon = ExtResource("1_kqa3j")
 icon_alignment = 1
 
 [node name="Cheese" type="Button" parent="IngredientsLeft"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+icon = ExtResource("2_ag4c1")
+icon_alignment = 1
 
-[node name="Lettuce" type="TextureRect" parent="IngredientsLeft"]
+[node name="Lettuce" type="Button" parent="IngredientsLeft"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("3_asvfj")
-stretch_mode = 5
-
-[node name="lettuce_button" type="Button" parent="IngredientsLeft/Lettuce"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 12.0
-offset_top = 7.33334
-offset_right = 42.0
-offset_bottom = 25.3333
+icon = ExtResource("3_asvfj")
+icon_alignment = 1
 
 [node name="IngredientsRight" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -94,44 +91,23 @@ scale = Vector2(1.5, 1.5)
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="BurgerTop" type="TextureRect" parent="IngredientsRight"]
+[node name="BurgerTop" type="Button" parent="IngredientsRight"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("4_bddjj")
-stretch_mode = 5
+icon = ExtResource("4_bddjj")
+icon_alignment = 1
 
-[node name="top_button" type="Button" parent="IngredientsRight/BurgerTop"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 17.0
-offset_top = 3.0
-offset_right = 49.0
-offset_bottom = 26.0
-
-[node name="Burger" type="TextureRect" parent="IngredientsRight"]
+[node name="Burger" type="Button" parent="IngredientsRight"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("5_uw2la")
-stretch_mode = 5
+icon = ExtResource("5_uw2la")
+icon_alignment = 1
 
-[node name="burger_button" type="Button" parent="IngredientsRight/Burger"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 16.0
-offset_top = 9.0
-offset_right = 50.0
-offset_bottom = 26.0
-
-[node name="Lettuce" type="TextureRect" parent="IngredientsRight"]
+[node name="Tomato" type="Button" parent="IngredientsRight"]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("6_k1cjq")
-stretch_mode = 5
-
-[node name="tomato_button" type="Button" parent="IngredientsRight/Lettuce"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 21.0
-offset_top = 12.0
-offset_right = 45.0
-offset_bottom = 26.0
+icon = ExtResource("6_k1cjq")
+icon_alignment = 1
 
 [node name="Instructions" type="ColorRect" parent="."]
 layout_mode = 1
@@ -198,9 +174,15 @@ position = Vector2(-21, 21)
 
 [connection signal="button_down" from="IngredientsLeft/BurgerBottom" to="." method="_on_part_button_down" binds= [0]]
 [connection signal="button_up" from="IngredientsLeft/BurgerBottom" to="." method="_on_part_button_up"]
-[connection signal="pressed" from="IngredientsLeft/Lettuce/lettuce_button" to="." method="_on_lettuce_button_pressed"]
-[connection signal="pressed" from="IngredientsRight/BurgerTop/top_button" to="." method="_on_top_button_pressed"]
-[connection signal="pressed" from="IngredientsRight/Burger/burger_button" to="." method="_on_burger_button_pressed"]
-[connection signal="pressed" from="IngredientsRight/Lettuce/tomato_button" to="." method="_on_tomato_button_pressed"]
+[connection signal="button_down" from="IngredientsLeft/Cheese" to="." method="_on_part_button_down" binds= [1]]
+[connection signal="button_up" from="IngredientsLeft/Cheese" to="." method="_on_part_button_up"]
+[connection signal="button_down" from="IngredientsLeft/Lettuce" to="." method="_on_part_button_down" binds= [2]]
+[connection signal="button_up" from="IngredientsLeft/Lettuce" to="." method="_on_part_button_up"]
+[connection signal="button_down" from="IngredientsRight/BurgerTop" to="." method="_on_part_button_down" binds= [5]]
+[connection signal="button_up" from="IngredientsRight/BurgerTop" to="." method="_on_part_button_up"]
+[connection signal="button_down" from="IngredientsRight/Burger" to="." method="_on_part_button_down" binds= [3]]
+[connection signal="button_up" from="IngredientsRight/Burger" to="." method="_on_part_button_up"]
+[connection signal="button_down" from="IngredientsRight/Tomato" to="." method="_on_part_button_down" binds= [4]]
+[connection signal="button_up" from="IngredientsRight/Tomato" to="." method="_on_part_button_up"]
 [connection signal="pressed" from="BottomUI/Button" to="." method="_on_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
