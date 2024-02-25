@@ -16,10 +16,10 @@
 size = Vector2(640, 431.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bihd"]
-size = Vector2(132, 339)
+size = Vector2(130, 340)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vapkt"]
-size = Vector2(129, 343)
+size = Vector2(130, 340)
 
 [node name="burgerparts" type="Control"]
 layout_mode = 3
@@ -46,8 +46,11 @@ stretch_mode = 6
 [node name="Takeout" parent="." instance=ExtResource("3_4q0d2")]
 unique_name_in_owner = true
 
-[node name="IngredientsLeft" type="VBoxContainer" parent="."]
-layout_mode = 1
+[node name="Timer" type="Timer" parent="."]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="IngredientsLeft" type="VBoxContainer" parent="UI"]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -59,26 +62,25 @@ scale = Vector2(1.5, 1.5)
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="BurgerBottom" type="Button" parent="IngredientsLeft"]
+[node name="BurgerBottom" type="Button" parent="UI/IngredientsLeft"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 icon = ExtResource("1_kqa3j")
 icon_alignment = 1
 
-[node name="Cheese" type="Button" parent="IngredientsLeft"]
+[node name="Cheese" type="Button" parent="UI/IngredientsLeft"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 icon = ExtResource("2_ag4c1")
 icon_alignment = 1
 
-[node name="Lettuce" type="Button" parent="IngredientsLeft"]
+[node name="Lettuce" type="Button" parent="UI/IngredientsLeft"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 icon = ExtResource("3_asvfj")
 icon_alignment = 1
 
-[node name="IngredientsRight" type="VBoxContainer" parent="."]
-layout_mode = 1
+[node name="IngredientsRight" type="VBoxContainer" parent="UI"]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -94,32 +96,31 @@ scale = Vector2(1.5, 1.5)
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="BurgerTop" type="Button" parent="IngredientsRight"]
+[node name="BurgerTop" type="Button" parent="UI/IngredientsRight"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 icon = ExtResource("4_bddjj")
 icon_alignment = 1
 
-[node name="Burger" type="Button" parent="IngredientsRight"]
+[node name="Burger" type="Button" parent="UI/IngredientsRight"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 icon = ExtResource("5_uw2la")
 icon_alignment = 1
 
-[node name="Tomato" type="Button" parent="IngredientsRight"]
+[node name="Tomato" type="Button" parent="UI/IngredientsRight"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 icon = ExtResource("6_k1cjq")
 icon_alignment = 1
 
-[node name="Instructions" type="ColorRect" parent="."]
-layout_mode = 1
+[node name="Instructions" type="ColorRect" parent="UI"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 108.0
 grow_horizontal = 2
 
-[node name="RequestView" type="HBoxContainer" parent="Instructions"]
+[node name="RequestView" type="HBoxContainer" parent="UI/Instructions"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
@@ -132,8 +133,7 @@ grow_horizontal = 2
 scale = Vector2(1.5, 1.5)
 alignment = 1
 
-[node name="BottomUI" type="VBoxContainer" parent="."]
-layout_mode = 1
+[node name="BottomUI" type="VBoxContainer" parent="UI"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -143,45 +143,45 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 2
 
-[node name="Button" type="Button" parent="BottomUI"]
+[node name="Button" type="Button" parent="UI/BottomUI"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "SERVE!"
 
-[node name="Timer" type="Timer" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(191, 786.75)
-shape = SubResource("RectangleShape2D_fcini")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(339, 431)
-shape = SubResource("RectangleShape2D_1bihd")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(20, 433)
-shape = SubResource("RectangleShape2D_vapkt")
-
 [node name="IngredientGroup" type="Node2D" parent="."]
 position = Vector2(-21, 21)
 
-[connection signal="button_down" from="IngredientsLeft/BurgerBottom" to="." method="_on_part_button_down" binds= [0]]
-[connection signal="button_up" from="IngredientsLeft/BurgerBottom" to="." method="_on_part_button_up"]
-[connection signal="button_down" from="IngredientsLeft/Cheese" to="." method="_on_part_button_down" binds= [1]]
-[connection signal="button_up" from="IngredientsLeft/Cheese" to="." method="_on_part_button_up"]
-[connection signal="button_down" from="IngredientsLeft/Lettuce" to="." method="_on_part_button_down" binds= [2]]
-[connection signal="button_up" from="IngredientsLeft/Lettuce" to="." method="_on_part_button_up"]
-[connection signal="button_down" from="IngredientsRight/BurgerTop" to="." method="_on_part_button_down" binds= [5]]
-[connection signal="button_up" from="IngredientsRight/BurgerTop" to="." method="_on_part_button_up"]
-[connection signal="button_down" from="IngredientsRight/Burger" to="." method="_on_part_button_down" binds= [3]]
-[connection signal="button_up" from="IngredientsRight/Burger" to="." method="_on_part_button_up"]
-[connection signal="button_down" from="IngredientsRight/Tomato" to="." method="_on_part_button_down" binds= [4]]
-[connection signal="button_up" from="IngredientsRight/Tomato" to="." method="_on_part_button_up"]
-[connection signal="pressed" from="BottomUI/Button" to="." method="_on_button_pressed"]
+[node name="Barriers" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Barriers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D"]
+position = Vector2(191, 786.75)
+shape = SubResource("RectangleShape2D_fcini")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Barriers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D2"]
+position = Vector2(338, 410)
+shape = SubResource("RectangleShape2D_1bihd")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Barriers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barriers/StaticBody2D3"]
+position = Vector2(20, 410)
+shape = SubResource("RectangleShape2D_vapkt")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="UI/IngredientsLeft/BurgerBottom" to="." method="_on_part_button_down" binds= [0]]
+[connection signal="button_up" from="UI/IngredientsLeft/BurgerBottom" to="." method="_on_part_button_up"]
+[connection signal="button_down" from="UI/IngredientsLeft/Cheese" to="." method="_on_part_button_down" binds= [1]]
+[connection signal="button_up" from="UI/IngredientsLeft/Cheese" to="." method="_on_part_button_up"]
+[connection signal="button_down" from="UI/IngredientsLeft/Lettuce" to="." method="_on_part_button_down" binds= [2]]
+[connection signal="button_up" from="UI/IngredientsLeft/Lettuce" to="." method="_on_part_button_up"]
+[connection signal="button_down" from="UI/IngredientsRight/BurgerTop" to="." method="_on_part_button_down" binds= [5]]
+[connection signal="button_up" from="UI/IngredientsRight/BurgerTop" to="." method="_on_part_button_up"]
+[connection signal="button_down" from="UI/IngredientsRight/Burger" to="." method="_on_part_button_down" binds= [3]]
+[connection signal="button_up" from="UI/IngredientsRight/Burger" to="." method="_on_part_button_up"]
+[connection signal="button_down" from="UI/IngredientsRight/Tomato" to="." method="_on_part_button_down" binds= [4]]
+[connection signal="button_up" from="UI/IngredientsRight/Tomato" to="." method="_on_part_button_up"]
+[connection signal="pressed" from="UI/BottomUI/Button" to="." method="_on_button_pressed"]
