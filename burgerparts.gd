@@ -29,6 +29,7 @@ var ingredient = preload("res://request_ingredient.tscn")
 func _ready():
 	randomize()
 	new_recipe()
+	takeout.connect("lid_anim_finished", self._on_lid_anim_finished)
 	for node in get_tree().get_nodes_in_group("pickable"):
 		node.clicked.connect(_on_pickable_clicked)
 
@@ -55,7 +56,7 @@ func _on_timer_timeout():
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if held_object and event.is_action_released("l_mouse"):
+		if held_object and event.is_action_released("release"):
 			held_object.drop(Input.get_last_mouse_velocity())
 			held_object = null
 
@@ -64,7 +65,6 @@ func _on_button_pressed():
 		ingredient_group.remove_child(node)
 		node.queue_free()
 	takeout.play("default")
-	takeout.connect("lid_anim_finished", self._on_lid_anim_finished)
 	add_child(celebrate.instantiate())
 
 func _on_lid_anim_finished():

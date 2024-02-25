@@ -159,13 +159,13 @@ shape = SubResource("RectangleShape2D_fcini")
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(344, 430)
+position = Vector2(339, 431)
 shape = SubResource("RectangleShape2D_1bihd")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(25.5, 430)
+position = Vector2(20, 433)
 shape = SubResource("RectangleShape2D_vapkt")
 
 [node name="IngredientGroup" type="Node2D" parent="."]

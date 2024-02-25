@@ -5,13 +5,13 @@ signal clicked
 var held = false
 @onready var collision_shape_2d = $CollisionShape2D
 
-func _input_event(viewport, event, shape_idx):
+func _input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
 			clicked.emit(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	if held:
 		global_transform.origin = get_global_mouse_position()
 
