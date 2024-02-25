@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://btyksugq7jjrt" path="res://assets/burger-bottom.png" id="1_kqa3j"]
 [ext_resource type="Texture2D" uid="uid://dmk58jvd3td0f" path="res://assets/cheese.png" id="2_ag4c1"]
 [ext_resource type="Texture2D" uid="uid://biujcljfjao67" path="res://assets/kitchen.jpg" id="2_jnl37"]
+[ext_resource type="PackedScene" uid="uid://cgt75lt8x8nfn" path="res://takeout.tscn" id="3_4q0d2"]
 [ext_resource type="Texture2D" uid="uid://cikvlc12ok1re" path="res://assets/lettuce.png" id="3_asvfj"]
-[ext_resource type="Texture2D" uid="uid://j700dpujuxp4" path="res://assets/lid_frames/0001.png" id="3_gu4p2"]
 [ext_resource type="Texture2D" uid="uid://dlceavs2wbm2t" path="res://assets/burger-top.png" id="4_bddjj"]
 [ext_resource type="Texture2D" uid="uid://2e3w0hkfsg3e" path="res://assets/beef.png" id="5_uw2la"]
 [ext_resource type="Texture2D" uid="uid://b4v3ou2vmcg1a" path="res://assets/tomato.png" id="6_k1cjq"]
@@ -43,10 +43,7 @@ grow_vertical = 2
 texture = ExtResource("2_jnl37")
 stretch_mode = 6
 
-[node name="Takeout" type="Sprite2D" parent="."]
-position = Vector2(180, 418)
-scale = Vector2(0.34, 0.34)
-texture = ExtResource("3_gu4p2")
+[node name="Takeout" parent="." instance=ExtResource("3_4q0d2")]
 
 [node name="IngredientsLeft" type="VBoxContainer" parent="."]
 layout_mode = 1
