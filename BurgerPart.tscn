@@ -8,7 +8,7 @@ size = Vector2(94, 22)
 
 [node name="BurgerPart" type="RigidBody2D" groups=["pickable"]]
 input_pickable = true
-freeze_mode = 1
+can_sleep = false
 script = ExtResource("1_aeyuu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

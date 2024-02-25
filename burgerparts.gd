@@ -5,6 +5,7 @@ extends Control
 @onready var takeout = %Takeout
 @onready var request_view = %RequestView
 var held_object = null
+var over_button : bool = false
 
 var burgerpart = preload("res://BurgerPart.tscn")
 var celebrate = preload("res://celebrate.tscn")
@@ -30,7 +31,7 @@ func _ready():
 	randomize()
 	new_recipe()
 	takeout.connect("lid_anim_finished", self._on_lid_anim_finished)
-	for node in get_tree().get_nodes_in_group("pickable"):
+	for node : Button in get_tree().get_nodes_in_group("pickable"):
 		node.clicked.connect(_on_pickable_clicked)
 
 func new_recipe():
@@ -57,6 +58,7 @@ func _on_timer_timeout():
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if held_object and event.is_action_released("release"):
+			print('drop')
 			held_object.drop(Input.get_last_mouse_velocity())
 			held_object = null
 
@@ -83,7 +85,19 @@ func _on_part_button_down(sprite_index : int):
 	_on_pickable_clicked(new_part)
 
 func _on_part_button_up():
-	if (held_object):
-		held_object.position = default_part_spawn
+	print('_on_part_button_up')
+	if !held_object:
+		return
+	if (over_button):
+		held_object.drop(Vector2.ZERO, default_part_spawn)
+	else:
 		held_object.drop(Vector2.ZERO)
-		held_object = null
+	held_object = null
+
+func _on_part_button_mouse_enter():
+	print('mouse_on')
+	over_button = true
+
+func _on_part_button_mouse_exit():
+	print('mouse_off')
+	over_button = false

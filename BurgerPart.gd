@@ -11,7 +11,7 @@ func _input_event(_viewport, event, _shape_idx):
 			clicked.emit(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(_delta):
+func _process(_delta):
 	if held:
 		global_transform.origin = get_global_mouse_position()
 
@@ -23,10 +23,13 @@ func pickup():
 	held = true
 	input_pickable = false
 
-func drop(impulse):
+func drop(impulse: Vector2, new_position: Vector2=Vector2.ZERO):
 	if held:
 		freeze = false
-		collision_shape_2d.disabled = false
-		apply_central_impulse(impulse)
 		held = false
+		collision_shape_2d.disabled = false
+		if new_position != Vector2.ZERO:
+			position = new_position
+		if impulse != Vector2.ZERO:
+			apply_central_impulse(impulse)
 		input_pickable = true
