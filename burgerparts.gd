@@ -2,6 +2,7 @@ extends Control
 
 @export var default_part_spawn : Vector2 = Vector2(200.0, 300.0)
 
+@onready var takeout = %Takeout
 @onready var request_view = %RequestView
 var held_object = null
 
@@ -59,12 +60,15 @@ func _unhandled_input(event):
 			held_object = null
 
 func _on_button_pressed():
-	new_recipe()
 	for node in ingredient_group.get_children():
 		ingredient_group.remove_child(node)
 		node.queue_free()
+	takeout.play("default")
+	takeout.connect("lid_anim_finished", self._on_lid_anim_finished)
 	add_child(celebrate.instantiate())
 
+func _on_lid_anim_finished():
+	new_recipe()
 
 func _on_part_button_down(sprite_index : int):
 	var new_part = burgerpart.instantiate()

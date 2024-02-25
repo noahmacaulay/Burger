@@ -44,6 +44,7 @@ texture = ExtResource("2_jnl37")
 stretch_mode = 6
 
 [node name="Takeout" parent="." instance=ExtResource("3_4q0d2")]
+unique_name_in_owner = true
 
 [node name="IngredientsLeft" type="VBoxContainer" parent="."]
 layout_mode = 1
