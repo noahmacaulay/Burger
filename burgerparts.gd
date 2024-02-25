@@ -58,7 +58,6 @@ func _on_timer_timeout():
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if held_object and event.is_action_released("release"):
-			print('drop')
 			held_object.drop(Input.get_last_mouse_velocity())
 			held_object = null
 
@@ -85,7 +84,6 @@ func _on_part_button_down(sprite_index : int):
 	_on_pickable_clicked(new_part)
 
 func _on_part_button_up():
-	print('_on_part_button_up')
 	if !held_object:
 		return
 	if (over_button):
@@ -95,9 +93,7 @@ func _on_part_button_up():
 	held_object = null
 
 func _on_part_button_mouse_enter():
-	print('mouse_on')
 	over_button = true
 
 func _on_part_button_mouse_exit():
-	print('mouse_off')
 	over_button = false
