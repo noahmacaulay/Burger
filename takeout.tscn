@@ -1,0 +1,63 @@
+[gd_scene load_steps=14 format=3 uid="uid://cgt75lt8x8nfn"]
+
+[ext_resource type="Texture2D" uid="uid://j700dpujuxp4" path="res://assets/lid_frames/0001.png" id="1_gchpv"]
+[ext_resource type="Texture2D" uid="uid://d6ev6ttoyrjx" path="res://assets/lid_frames/0002.png" id="2_k0oys"]
+[ext_resource type="Texture2D" uid="uid://ctfoolw8skp0b" path="res://assets/lid_frames/0003.png" id="3_t3v3b"]
+[ext_resource type="Texture2D" uid="uid://b1jw0gp47gug" path="res://assets/lid_frames/0004.png" id="4_b37rg"]
+[ext_resource type="Texture2D" uid="uid://cdyncc1h0g20x" path="res://assets/lid_frames/0005.png" id="5_v4p2x"]
+[ext_resource type="Texture2D" uid="uid://ddvi0fxcrse2" path="res://assets/lid_frames/0006.png" id="6_uj786"]
+[ext_resource type="Texture2D" uid="uid://dgb3ku1gfhprx" path="res://assets/lid_frames/0007.png" id="7_g066t"]
+[ext_resource type="Texture2D" uid="uid://bbvkqxm4pqntm" path="res://assets/lid_frames/0008.png" id="8_a7eb7"]
+[ext_resource type="Texture2D" uid="uid://bxclygohfri3x" path="res://assets/lid_frames/0009.png" id="9_t2uqj"]
+[ext_resource type="Texture2D" uid="uid://b4pnwrptakowi" path="res://assets/lid_frames/0010.png" id="10_pwdgj"]
+[ext_resource type="Texture2D" uid="uid://bgkj8y2v7mmu1" path="res://assets/lid_frames/0011.png" id="11_86mu3"]
+[ext_resource type="Texture2D" uid="uid://brimtylmf46xm" path="res://assets/lid_frames/0012.png" id="12_qcefe"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m0hhr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gchpv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k0oys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_t3v3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b37rg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v4p2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uj786")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g066t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_a7eb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t2uqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pwdgj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_86mu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qcefe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Takeout" type="AnimatedSprite2D"]
+position = Vector2(180, 418)
+scale = Vector2(0.34, 0.34)
+sprite_frames = SubResource("SpriteFrames_m0hhr")
